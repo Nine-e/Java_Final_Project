@@ -40,7 +40,7 @@ public class Login extends Application {
     private String sqlStr;
     private String tableName;
     private Boolean isDisplay;
-    //private String id;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -143,6 +143,7 @@ public class Login extends Application {
         String p = "";
         isDisplay = true;
 
+        //’À∫≈√‹¬Î≤ªƒ‹Œ™ø’
         if(number.length()==0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -226,13 +227,11 @@ public class Login extends Application {
                 mv.bulidManagerStage();
             }
         }else{
-            System.out.println(p+"44");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("√‹¬Î¥ÌŒÛ");
             alert.showAndWait();
-            System.out.println("√‹¬Î¥ÌŒÛ");
             isDisplay = false;
         }
 

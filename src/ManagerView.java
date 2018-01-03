@@ -531,6 +531,7 @@ public class ManagerView extends Application {
         managerStage.show();
     }
 
+    //判断字符串是否由数字组成
     public static boolean isNumeric(String str)
     {
         for(int i=str.length();--i>=0;)

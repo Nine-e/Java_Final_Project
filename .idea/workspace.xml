@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64a3a692-ceb6-4b32-a6dd-e1a3ff909d19" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login.java" afterPath="$PROJECT_DIR$/src/Login.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ManagerView.java" afterPath="$PROJECT_DIR$/src/ManagerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PasswordView.java" afterPath="$PROJECT_DIR$/src/PasswordView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StudentView.java" afterPath="$PROJECT_DIR$/src/StudentView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TeacherView.java" afterPath="$PROJECT_DIR$/src/TeacherView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,23 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PasswordView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PasswordView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="191" column="23" lean-forward="true" selection-start-line="191" selection-start-column="23" selection-end-line="191" selection-end-column="23" />
+            <state relative-caret-position="1109">
+              <caret line="196" column="9" lean-forward="true" selection-start-line="196" selection-start-column="9" selection-end-line="196" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Login#0" expanded="false" />
@@ -44,11 +30,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DatabaseControler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DatabaseControler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-133">
+              <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+              <folding>
+                <element signature="method#connect#0;class#DatabaseControler#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="StudentView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/StudentView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="74" column="48" lean-forward="true" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
+            <state relative-caret-position="327">
+              <caret line="250" column="35" lean-forward="true" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
               <folding>
                 <element signature="method#start#0;class#StudentView#0" expanded="false" />
                 <element signature="e#2267#2299#0" expanded="false" />
@@ -64,11 +62,15 @@
       <file leaf-file-name="TeacherView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TeacherView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="299" column="78" lean-forward="true" selection-start-line="299" selection-start-column="78" selection-end-line="299" selection-end-column="78" />
+            <state relative-caret-position="377">
+              <caret line="274" column="10" lean-forward="false" selection-start-line="274" selection-start-column="10" selection-end-line="274" selection-end-column="10" />
               <folding>
                 <element signature="method#bulidVBox#0;class#TeacherView#0" expanded="false" />
+                <element signature="method#initTV#0;class#TeacherView#0" expanded="false" />
+                <element signature="method#getTeacher#0;class#TeacherView#0" expanded="false" />
                 <element signature="method#getStudentList#0;class#TeacherView#0" expanded="false" />
+                <element signature="method#sayYes#0;class#TeacherView#0" expanded="false" />
+                <element signature="method#sayNo#0;class#TeacherView#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -77,8 +79,8 @@
       <file leaf-file-name="ManagerView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ManagerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+            <state relative-caret-position="170">
+              <caret line="558" column="19" lean-forward="true" selection-start-line="558" selection-start-column="19" selection-end-line="558" selection-end-column="19" />
               <folding>
                 <element signature="method#start#0;class#ManagerView#0" expanded="false" />
                 <element signature="method#buildInfoMenu#0;class#ManagerView#0" expanded="false" />
@@ -88,7 +90,6 @@
                 <element signature="method#bulidsBox#0;class#ManagerView#0" expanded="false" />
                 <element signature="method#bulidManagerStage#0;class#ManagerView#0" expanded="false" />
                 <element signature="method#isNumeric#0;class#ManagerView#0" expanded="false" />
-                <element signature="method#isHaveId#0;class#ManagerView#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,8 +122,8 @@
         <option value="$PROJECT_DIR$/src/passwordView.java" />
         <option value="$PROJECT_DIR$/src/StudentView.java" />
         <option value="$PROJECT_DIR$/src/PasswordView.java" />
-        <option value="$PROJECT_DIR$/src/Login.java" />
         <option value="$PROJECT_DIR$/src/TeacherView.java" />
+        <option value="$PROJECT_DIR$/src/Login.java" />
         <option value="$PROJECT_DIR$/src/ManagerView.java" />
       </list>
     </option>
@@ -137,7 +138,7 @@
     <option name="x" value="54" />
     <option name="y" value="-8" />
     <option name="width" value="1320" />
-    <option name="height" value="784" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -182,9 +183,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -688,12 +689,13 @@
       <workItem from="1513834869226" duration="4576000" />
       <workItem from="1514782593788" duration="1421000" />
       <workItem from="1514784480357" duration="50070000" />
-      <workItem from="1514940651427" duration="17419000" />
+      <workItem from="1514940651427" duration="17499000" />
+      <workItem from="1514961431354" duration="2075000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81333000" />
+    <option name="totallyTimeSpent" value="83488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,13 +707,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <frame x="54" y="-8" width="1320" height="772" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -723,7 +724,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16411042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16334356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -735,6 +736,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -760,6 +762,74 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/PasswordView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2461">
+          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4393">
+          <caret line="191" column="23" lean-forward="true" selection-start-line="191" selection-start-column="23" selection-end-line="191" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Login#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StudentView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1702">
+          <caret line="74" column="48" lean-forward="true" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
+          <folding>
+            <element signature="method#start#0;class#StudentView#0" expanded="false" />
+            <element signature="e#2267#2299#0" expanded="false" />
+            <element signature="method#initSV#0;class#StudentView#0" expanded="false" />
+            <element signature="method#setId#0;class#StudentView#0" expanded="false" />
+            <element signature="method#getStudent#0;class#StudentView#0" expanded="false" />
+            <element signature="method#getTeachers#0;class#StudentView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TeacherView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6877">
+          <caret line="299" column="78" lean-forward="true" selection-start-line="299" selection-start-column="78" selection-end-line="299" selection-end-column="78" />
+          <folding>
+            <element signature="method#bulidVBox#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#initTV#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#getTeacher#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayYes#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayNo#0;class#TeacherView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ManagerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="method#start#0;class#ManagerView#0" expanded="false" />
+            <element signature="method#buildInfoMenu#0;class#ManagerView#0" expanded="false" />
+            <element signature="method#buildSetMenu#0;class#ManagerView#0" expanded="false" />
+            <element signature="method#bulidQueryBox#0;class#ManagerView#0" expanded="false" />
+            <element signature="e#9062#12058#0" expanded="false" />
+            <element signature="method#bulidsBox#0;class#ManagerView#0" expanded="false" />
+            <element signature="method#bulidManagerStage#0;class#ManagerView#0" expanded="false" />
+            <element signature="method#isNumeric#0;class#ManagerView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -806,7 +876,6 @@
           <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
           <folding>
             <element signature="method#start#0;class#StudentView#0" expanded="false" />
-            <element signature="method#bulidStudentStage#0;class#StudentView#0" expanded="false" />
             <element signature="e#2267#2299#0" expanded="false" />
             <element signature="method#initSV#0;class#StudentView#0" expanded="false" />
             <element signature="method#setId#0;class#StudentView#0" expanded="false" />
@@ -821,9 +890,12 @@
         <state relative-caret-position="2990">
           <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
           <folding>
-            <element signature="e#7015#7016#0" expanded="false" />
-            <element signature="e#7039#7040#0" expanded="false" />
+            <element signature="method#bulidVBox#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#initTV#0;class#TeacherView#0" expanded="false" />
             <element signature="method#getTeacher#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayYes#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayNo#0;class#TeacherView#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -834,7 +906,6 @@
           <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
           <folding>
             <element signature="method#start#0;class#StudentView#0" expanded="false" />
-            <element signature="method#bulidStudentStage#0;class#StudentView#0" expanded="false" />
             <element signature="e#2267#2299#0" expanded="false" />
             <element signature="method#initSV#0;class#StudentView#0" expanded="false" />
             <element signature="method#setId#0;class#StudentView#0" expanded="false" />
@@ -917,9 +988,12 @@
         <state relative-caret-position="1610">
           <caret line="85" column="84" lean-forward="false" selection-start-line="85" selection-start-column="84" selection-end-line="85" selection-end-column="84" />
           <folding>
-            <element signature="e#7015#7016#0" expanded="false" />
-            <element signature="e#7039#7040#0" expanded="false" />
+            <element signature="method#bulidVBox#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#initTV#0;class#TeacherView#0" expanded="false" />
             <element signature="method#getTeacher#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayYes#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayNo#0;class#TeacherView#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -951,7 +1025,6 @@
           <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
           <folding>
             <element signature="method#start#0;class#StudentView#0" expanded="false" />
-            <element signature="method#bulidStudentStage#0;class#StudentView#0" expanded="false" />
             <element signature="e#2267#2299#0" expanded="false" />
             <element signature="method#initSV#0;class#StudentView#0" expanded="false" />
             <element signature="method#setId#0;class#StudentView#0" expanded="false" />
@@ -1034,9 +1107,12 @@
         <state relative-caret-position="1955">
           <caret line="85" column="84" lean-forward="true" selection-start-line="85" selection-start-column="84" selection-end-line="85" selection-end-column="84" />
           <folding>
-            <element signature="e#7015#7016#0" expanded="false" />
-            <element signature="e#7039#7040#0" expanded="false" />
+            <element signature="method#bulidVBox#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#initTV#0;class#TeacherView#0" expanded="false" />
             <element signature="method#getTeacher#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayYes#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayNo#0;class#TeacherView#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1068,7 +1144,6 @@
           <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
           <folding>
             <element signature="method#start#0;class#StudentView#0" expanded="false" />
-            <element signature="method#bulidStudentStage#0;class#StudentView#0" expanded="false" />
             <element signature="e#2267#2299#0" expanded="false" />
             <element signature="method#initSV#0;class#StudentView#0" expanded="false" />
             <element signature="method#setId#0;class#StudentView#0" expanded="false" />
@@ -1182,9 +1257,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="method#Teacher#0;class#Teacher#0" expanded="false" />
+            <element signature="method#Teacher#1;class#Teacher#0" expanded="false" />
+            <element signature="e#2235#2236#0" expanded="false" />
+            <element signature="e#2275#2276#0" expanded="false" />
+            <element signature="e#2306#2307#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
+            <element signature="e#2379#2380#0" expanded="false" />
+            <element signature="e#2417#2418#0" expanded="false" />
+            <element signature="e#2452#2453#0" expanded="false" />
+            <element signature="e#2483#2484#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PasswordView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2208">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DatabaseControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding>
+            <element signature="method#connect#0;class#DatabaseControler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
+        <state relative-caret-position="23">
           <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding>
             <element signature="e#850#851#0" expanded="false" />
@@ -1231,49 +1345,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Teacher.java">
+    <entry file="file://$PROJECT_DIR$/src/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="method#Teacher#0;class#Teacher#0" expanded="false" />
-            <element signature="method#Teacher#1;class#Teacher#0" expanded="false" />
-            <element signature="e#2235#2236#0" expanded="false" />
-            <element signature="e#2275#2276#0" expanded="false" />
-            <element signature="e#2306#2307#0" expanded="false" />
-            <element signature="e#2336#2337#0" expanded="false" />
-            <element signature="e#2379#2380#0" expanded="false" />
-            <element signature="e#2417#2418#0" expanded="false" />
-            <element signature="e#2452#2453#0" expanded="false" />
-            <element signature="e#2483#2484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DatabaseControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <element signature="method#connect#0;class#DatabaseControler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PasswordView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="1109">
+          <caret line="196" column="9" lean-forward="true" selection-start-line="196" selection-start-column="9" selection-end-line="196" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Login#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StudentView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="74" column="48" lean-forward="true" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
+        <state relative-caret-position="327">
+          <caret line="250" column="35" lean-forward="true" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
           <folding>
             <element signature="method#start#0;class#StudentView#0" expanded="false" />
             <element signature="e#2267#2299#0" expanded="false" />
@@ -1285,32 +1371,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="191" column="23" lean-forward="true" selection-start-line="191" selection-start-column="23" selection-end-line="191" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#Login#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TeacherView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="299" column="78" lean-forward="true" selection-start-line="299" selection-start-column="78" selection-end-line="299" selection-end-column="78" />
+        <state relative-caret-position="377">
+          <caret line="274" column="10" lean-forward="false" selection-start-line="274" selection-start-column="10" selection-end-line="274" selection-end-column="10" />
           <folding>
             <element signature="method#bulidVBox#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#initTV#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#getTeacher#0;class#TeacherView#0" expanded="false" />
             <element signature="method#getStudentList#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayYes#0;class#TeacherView#0" expanded="false" />
+            <element signature="method#sayNo#0;class#TeacherView#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ManagerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        <state relative-caret-position="170">
+          <caret line="558" column="19" lean-forward="true" selection-start-line="558" selection-start-column="19" selection-end-line="558" selection-end-column="19" />
           <folding>
             <element signature="method#start#0;class#ManagerView#0" expanded="false" />
             <element signature="method#buildInfoMenu#0;class#ManagerView#0" expanded="false" />
@@ -1320,7 +1399,6 @@
             <element signature="method#bulidsBox#0;class#ManagerView#0" expanded="false" />
             <element signature="method#bulidManagerStage#0;class#ManagerView#0" expanded="false" />
             <element signature="method#isNumeric#0;class#ManagerView#0" expanded="false" />
-            <element signature="method#isHaveId#0;class#ManagerView#0" expanded="false" />
           </folding>
         </state>
       </provider>
