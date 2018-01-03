@@ -9,21 +9,23 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.sql.ResultSet;
+import java.sql.*;
 
 /**
- * Created by del on 2017/12/14.
+ * Created by del on 2018/1/3.
  */
-public class Login extends Application {
+public class PasswordView extends Application{
     private final int WINDOW_WIDTH = 500;
     private final int WINDOW_HEIGHT = 400;
 
     private Label loginLabel;
     private Label numberLabel;
     private Label passwordLabel;
+    private Label newPassLabel;
     private TextField numberTF;
     private TextField passwordTF;
-    private Button loginButton;
-    private Button passwordBtn;
+    private TextField newPassTF;
+    private Button button;
 
     private RadioButton studentRB;
     private RadioButton teacherRB;
@@ -34,50 +36,57 @@ public class Login extends Application {
     private BorderPane borderPane;
     private HBox numberHBox;
     private HBox passwordHBox;
+    private HBox newPassHBox;
     private HBox radioSelectHBox;
 
     private Stage studentStage;
     private String sqlStr;
     private String tableName;
     private Boolean isDisplay;
-    //private String id;
-
+    private Stage passwordStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
+        bulidVBox();
+
+        //创建舞台和场景
+        Scene scene = new Scene(vBox,WINDOW_WIDTH,WINDOW_HEIGHT);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Login");
+        primaryStage.show();
+
+    }
+    public void bulidVBox(){
         //创建Label、TextField、Button等组件
         loginLabel = new Label("登录");
         loginLabel.setStyle("-fx-font-size: 24px");
         //loginLabel.setPadding(new );
         numberLabel = new Label("账号");
         numberLabel.setStyle("-fx-font-size: 18px");
-        passwordLabel = new Label("密码");
+        passwordLabel = new Label("原密码");
         passwordLabel.setStyle("-fx-font-size: 18px");
+        newPassLabel = new Label("新密码");
+        newPassLabel.setStyle("-fx-font-size: 18px");
         numberTF = new TextField();
         numberTF.setPrefColumnCount(15);
         numberTF.setPrefHeight(35);
         passwordTF = new TextField();
         passwordTF.setPrefColumnCount(15);
         passwordTF.setPrefHeight(35);
+        newPassTF = new TextField();
+        newPassTF.setPrefColumnCount(15);
+        newPassTF.setPrefHeight(35);
 
-        loginButton = new Button("登录");
-        loginButton.setAlignment(Pos.CENTER);
+        button = new Button("确定");
+        button.setAlignment(Pos.CENTER);
         //登录按钮点击事件
-        loginButton.setOnAction(e->{
-            login();
+        button.setOnAction(e->{
+            setPassword();
             //暂时注释掉，勿删！！！！！！
-            /*if(isDisplay) {
-                primaryStage.close();
-            }*/
+            if(isDisplay) {
+                passwordStage.close();
+            }
         });
 
-        passwordBtn = new Button("修改密码");
-        loginButton.setAlignment(Pos.CENTER);
-        //修改密码按钮点击事件
-        passwordBtn.setOnAction(event -> {
-            PasswordView passwordView = new PasswordView();
-            passwordView.bulidPasswordStage();
-
-        });
 
         //创建单选按钮
         toggleGroup = new ToggleGroup();
@@ -109,6 +118,9 @@ public class Login extends Application {
         passwordHBox = new HBox();
         passwordHBox.getChildren().addAll(passwordLabel,passwordTF);
         passwordHBox.setAlignment(Pos.CENTER);
+        newPassHBox = new HBox();
+        newPassHBox.getChildren().addAll(newPassLabel,newPassTF);
+        newPassHBox.setAlignment(Pos.CENTER);
         radioSelectHBox = new HBox();
         radioSelectHBox.getChildren().addAll(studentRB,teacherRB,managerRB);
         radioSelectHBox.setAlignment(Pos.CENTER);
@@ -116,21 +128,24 @@ public class Login extends Application {
         //创建VBox
         vBox = new VBox(10);
         vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(loginLabel,numberHBox,passwordHBox);
+        vBox.getChildren().addAll(loginLabel,numberHBox,passwordHBox,newPassHBox);
         vBox.getChildren().add(radioSelectHBox);
-        vBox.getChildren().add(loginButton);
-        vBox.getChildren().add(passwordBtn);
+        vBox.getChildren().add(button);
 
+    }
+    public void bulidPasswordStage(){
+        bulidVBox();
         //创建舞台和场景
         Scene scene = new Scene(vBox,WINDOW_WIDTH,WINDOW_HEIGHT);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
-        primaryStage.show();
+        passwordStage = new Stage();
+        passwordStage.setScene(scene);
+        passwordStage.setTitle("Login");
+        passwordStage.show();
     }
-
-    public void login(){
+    public void setPassword(){
         String number = numberTF.getText();
         String password = passwordTF.getText();
+        String newPass = newPassTF.getText();
         String p = "";
         isDisplay = true;
 
@@ -169,7 +184,7 @@ public class Login extends Application {
 
         //获取密码
         try {
-           do{
+            do{
                 if(tableName.equals("manager")){
                     p = rs.getString(2);
                 }else {
@@ -181,24 +196,27 @@ public class Login extends Application {
             System.out.println("出错：" + e.getMessage());
         }
 
-        //判断密码是否正确
-        //密码正确则跳转页面
+        //判断原密码是否正确
+        //密码正确则修改密码
         if (password.equals(p)){
             if(tableName.equals("student"))
             {
-                StudentView sv = new StudentView();
-                sv.setId(number);
-                sv.bulidStudentStage();
+                sqlStr = "update student set s_password="+ "'"+ newPass + "'"
+                        +" where s_id="+ number ;
             }else if(tableName.equals("teacher")){
-                TeacherView tv = new TeacherView();
-                tv.setId(number);
-                tv.bulidTeacherStage();
+                sqlStr = "update teacher set t_password="+ "'"+ newPass + "'"
+                        +" where t_id="+ number ;
             }else if(tableName.equals("manager")){
-                ManagerView mv = new ManagerView();
-                mv.bulidManagerStage();
+                sqlStr = "update manager set m_password="+ "'"+ newPass + "'"
+                        +" where m_id="+ number ;
             }
+            controler.updateInDB(sqlStr);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("修改成功");
+            alert.showAndWait();
         }else{
-            System.out.println(p+"44");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
@@ -210,9 +228,6 @@ public class Login extends Application {
 
         //关闭数据库连接
         controler.closeConnection();
+    }
 
-    }
-    public static void main(String[] args){
-        launch(args);
-    }
 }
