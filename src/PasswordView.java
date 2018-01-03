@@ -23,8 +23,8 @@ public class PasswordView extends Application{
     private Label passwordLabel;
     private Label newPassLabel;
     private TextField numberTF;
-    private TextField passwordTF;
-    private TextField newPassTF;
+    private PasswordField passwordTF;
+    private PasswordField newPassTF;
     private Button button;
 
     private RadioButton studentRB;
@@ -51,32 +51,33 @@ public class PasswordView extends Application{
         //创建舞台和场景
         Scene scene = new Scene(vBox,WINDOW_WIDTH,WINDOW_HEIGHT);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("修改密码");
         primaryStage.show();
 
     }
     public void bulidVBox(){
         //创建Label、TextField、Button等组件
-        loginLabel = new Label("登录");
-        loginLabel.setStyle("-fx-font-size: 24px");
+        loginLabel = new Label("修改密码");
+        loginLabel.setStyle("-fx-font-size: 22px");
         //loginLabel.setPadding(new );
-        numberLabel = new Label("账号");
+        numberLabel = new Label("   账号");
         numberLabel.setStyle("-fx-font-size: 18px");
         passwordLabel = new Label("原密码");
         passwordLabel.setStyle("-fx-font-size: 18px");
         newPassLabel = new Label("新密码");
         newPassLabel.setStyle("-fx-font-size: 18px");
         numberTF = new TextField();
-        numberTF.setPrefColumnCount(15);
+        numberTF.setPrefColumnCount(10);
         numberTF.setPrefHeight(35);
-        passwordTF = new TextField();
-        passwordTF.setPrefColumnCount(15);
+        passwordTF = new PasswordField();
+        passwordTF.setPrefColumnCount(10);
         passwordTF.setPrefHeight(35);
-        newPassTF = new TextField();
-        newPassTF.setPrefColumnCount(15);
+        newPassTF = new PasswordField();
+        newPassTF.setPrefColumnCount(10);
         newPassTF.setPrefHeight(35);
 
         button = new Button("确定");
+       button.setPrefSize(200,40);
         button.setAlignment(Pos.CENTER);
         //登录按钮点击事件
         button.setOnAction(e->{
@@ -101,6 +102,11 @@ public class PasswordView extends Application{
         teacherRB.setUserData("teacher");
         managerRB.setUserData("manager");
 
+        //设置单选按钮焦点
+        studentRB.setSelected(true);
+        tableName = "student";
+
+
         //单选按钮监听事件
         toggleGroup.selectedToggleProperty().addListener(
                 (ObservableValue<? extends Toggle> ov, Toggle old_Toggle,
@@ -112,21 +118,21 @@ public class PasswordView extends Application{
                 });
 
         //创建HBox
-        numberHBox = new HBox();
+        numberHBox = new HBox(20);
         numberHBox.getChildren().addAll(numberLabel,numberTF);
         numberHBox.setAlignment(Pos.CENTER);
-        passwordHBox = new HBox();
+        passwordHBox = new HBox(20);
         passwordHBox.getChildren().addAll(passwordLabel,passwordTF);
         passwordHBox.setAlignment(Pos.CENTER);
-        newPassHBox = new HBox();
+        newPassHBox = new HBox(20);
         newPassHBox.getChildren().addAll(newPassLabel,newPassTF);
         newPassHBox.setAlignment(Pos.CENTER);
-        radioSelectHBox = new HBox();
+        radioSelectHBox = new HBox(20);
         radioSelectHBox.getChildren().addAll(studentRB,teacherRB,managerRB);
         radioSelectHBox.setAlignment(Pos.CENTER);
 
         //创建VBox
-        vBox = new VBox(10);
+        vBox = new VBox(15);
         vBox.setAlignment(Pos.CENTER);
         vBox.getChildren().addAll(loginLabel,numberHBox,passwordHBox,newPassHBox);
         vBox.getChildren().add(radioSelectHBox);
@@ -139,7 +145,7 @@ public class PasswordView extends Application{
         Scene scene = new Scene(vBox,WINDOW_WIDTH,WINDOW_HEIGHT);
         passwordStage = new Stage();
         passwordStage.setScene(scene);
-        passwordStage.setTitle("Login");
+        passwordStage.setTitle("修改密码");
         passwordStage.show();
     }
     public void setPassword(){
@@ -148,6 +154,32 @@ public class PasswordView extends Application{
         String newPass = newPassTF.getText();
         String p = "";
         isDisplay = true;
+
+        if(number.length()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("请输入账号");
+            alert.showAndWait();
+            isDisplay = false;
+            return;
+        }else if(password.length()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("请输入原密码");
+            alert.showAndWait();
+            isDisplay = false;
+            return;
+        }else if(newPass.length()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("请输入新密码");
+            alert.showAndWait();
+            isDisplay = false;
+            return;
+        }
 
         if(tableName.equals("student")){
             sqlStr = "select * from student where s_id ="+number;

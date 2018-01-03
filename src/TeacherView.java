@@ -23,8 +23,8 @@ import java.sql.SQLException;
  * Created by del on 2017/12/19.
  */
 public class TeacherView extends Application {
-    private final int WINDOW_WIDTH = 500;
-    private final int WINDOW_HEIGHT = 400;
+    private final int WINDOW_WIDTH = 650;
+    private final int WINDOW_HEIGHT = 500;
 
     private HBox hBox;
     private HBox btnHbox;
@@ -69,10 +69,18 @@ public class TeacherView extends Application {
         initTV();
     }
     public void bulidVBox(){
+        Label label_1 = new Label("姓名:");
+        label_1.setStyle("-fx-font-size: 15");
+        Label label_2 = new Label("状态:");
+        label_2.setStyle("-fx-font-size: 15");
         nameLabel = new Label("姓名");
+        nameLabel.setStyle("-fx-font-size: 15");
         stateLabel = new Label("状态");
+        stateLabel.setStyle("-fx-font-size: 15");
         label1 = new Label("已确定");
+        label1.setStyle("-fx-font-weight: bold");
         label2 = new Label("待确定");
+        label2.setStyle("-fx-font-weight: bold");
         yesBtn = new Button("确定");
         noBtn = new Button("淘汰");
 
@@ -93,6 +101,12 @@ public class TeacherView extends Application {
         TableColumn<Student,String> tColMajor2 = new TableColumn<Student, String>("专业");
         TableColumn<Student,String> tColClas2 = new TableColumn<Student, String>("班级");
         TableColumn<Student,String> tColPhone2 = new TableColumn<Student, String>("联系电话");
+        //设置最小列宽
+        tColId.setMinWidth(130);
+        tColPhone.setMinWidth(130);
+        tColMajor.setMinWidth(100);
+        tColId2.setMinWidth(120);
+        tColPhone2.setMinWidth(130);
         //把列对象添加到表视图
         tableView.getColumns().addAll(tColId,tColName,tColSex,tColClas,tColMajor,tColPhone);
         untableView.getColumns().addAll(tColId2,tColName2,tColSex2,tColClas2,tColMajor2,tColPhone2);
@@ -145,12 +159,12 @@ public class TeacherView extends Application {
         hBox = new HBox(10);
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new javafx.geometry.Insets(10,10,10,10));
-        hBox.getChildren().addAll(nameLabel,stateLabel);
+        hBox.getChildren().addAll(label_1,nameLabel,label_2,stateLabel);
         btnHbox = new HBox(10);
         btnHbox.setAlignment(Pos.CENTER_RIGHT);
         btnHbox.setPadding(new javafx.geometry.Insets(10,10,10,10));
         btnHbox.getChildren().addAll(yesBtn,noBtn);
-        vBox = new VBox();
+        vBox = new VBox(10);
         vBox.setPadding(new javafx.geometry.Insets(5,10,5,10));
         vBox.getChildren().addAll(hBox,label1,tableView,label2,untableView,btnHbox);
     }
@@ -259,6 +273,7 @@ public class TeacherView extends Application {
     }
 
     public void sayYes(){
+        getTeacher();
         if(student.equals(null))
             return;
         if(teacher.getT_isfull().equals("已满额")){
@@ -273,18 +288,31 @@ public class TeacherView extends Application {
         DatabaseControler controler = new DatabaseControler();
         controler.connect();
 
-        //sql="update 数据表 set 字段1=值1,字段2=值2 …… 字段n=值n where 条件表达式"
+        //更新学生状态为选定
         sqlStr =  "update student set s_state='选定'"+" where s_id="+student.getS_id() ;
         controler.updateInDB(sqlStr);
 
         getTeacher();
         getStudentList();
 
+        //更新教师学生数
         int count = teacher.getT_count()+1;
         sqlStr =  "update teacher set t_count="+ count +" where t_id="+ t_id ;
         controler.updateInDB(sqlStr);
         System.out.println(teacher.getT_count());
-        if (count >= 2) {
+
+        int count_num = 2;
+        sqlStr =  "select * from count where count_id =1";
+        ResultSet rs = controler.queryInDB(sqlStr);
+        try {
+            while (rs.next()){
+                count_num = rs.getInt(2);
+            }
+        }catch (Exception e){
+            System.out.println("出错：" + e.getMessage());
+        }
+
+        if (count >= count_num) {
             sqlStr = "update teacher set t_isfull='已满额'" + " where t_id=" + t_id;
             controler.updateInDB(sqlStr);
             stateLabel.setText("已满额");
@@ -303,7 +331,7 @@ public class TeacherView extends Application {
         DatabaseControler controler = new DatabaseControler();
         controler.connect();
 
-        //sql="update 数据表 set 字段1=值1,字段2=值2 …… 字段n=值n where 条件表达式"
+        //更新学生状态为未选
         sqlStr =  "update student set t_id=null,t_name=null,s_state='未选'"+" where s_id="+student.getS_id() ;
         controler.updateInDB(sqlStr);
 

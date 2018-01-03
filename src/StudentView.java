@@ -23,7 +23,7 @@ import java.sql.SQLException;
  * Created by del on 2017/12/19.
  */
 public class StudentView extends Application {
-    private final int WINDOW_WIDTH = 600;
+    private final int WINDOW_WIDTH = 650;
     private final int WINDOW_HEIGHT = 400;
 
     private HBox hBox1;
@@ -65,8 +65,14 @@ public class StudentView extends Application {
    }
 
    public void bulidVBox(){
+       Label label_1 = new Label("姓名:");
+       label_1.setStyle("-fx-font-size: 15");
+       Label label_2 = new Label("状态:");
+       label_2.setStyle("-fx-font-size: 15");
        nameLabel = new Label("姓名");
+       nameLabel.setStyle("-fx-font-size: 15");
        stateLabel = new Label("状态");
+       stateLabel.setStyle("-fx-font-size: 15");
 
        chooseBtn = new javafx.scene.control.Button("选择该导师");
        // chooseBtn.setPreferredSize();
@@ -81,6 +87,9 @@ public class StudentView extends Application {
        TableColumn<Teacher,String> tColMajor = new TableColumn<Teacher, String>("研究方向");
        TableColumn<Teacher,String> tColPhone = new TableColumn<Teacher, String>("联系电话");
        TableColumn<Teacher,String> tColState = new TableColumn<Teacher, String>("状态");
+       //设置最小列宽
+       tColId.setMinWidth(100);
+       tColPhone.setMinWidth(130);
        //把列对象添加到表视图
        tableView.getColumns().addAll(tColId,tColName,tColSex,tColTitle,tColMajor,tColPhone,tColState);
        //创建数据列表
@@ -115,7 +124,7 @@ public class StudentView extends Application {
        hBox1 = new HBox(10);
        hBox1.setAlignment(Pos.CENTER_LEFT);
        hBox1.setPadding(new javafx.geometry.Insets(10,10,10,10));
-       hBox1.getChildren().addAll(nameLabel,stateLabel);
+       hBox1.getChildren().addAll(label_1,nameLabel,label_2,stateLabel);
 
        hBox2 = new HBox();
        hBox2.setAlignment(Pos.CENTER_RIGHT);

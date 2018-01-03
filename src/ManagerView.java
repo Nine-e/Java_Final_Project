@@ -19,7 +19,7 @@ import java.sql.SQLException;
  * Created by del on 2018/1/1.
  */
 public class ManagerView extends Application {
-    private final int WINDOW_WIDTH = 600;
+    private final int WINDOW_WIDTH = 750;
     private final int WINDOW_HEIGHT = 400;
 
     private MenuBar menuBar;
@@ -36,6 +36,7 @@ public class ManagerView extends Application {
     private VBox teacherBox;
     private VBox studentBox;
     private VBox setNumBox;
+    private HBox numHBox;
 
     private BorderPane borderPane;
 
@@ -150,6 +151,10 @@ public class ManagerView extends Application {
         TableColumn<Student,String> tColState = new TableColumn<Student, String>("状态");
         TableColumn<Student,String> tColTeacher = new TableColumn<Student, String>("导师");
 
+        //设置最小列宽
+        tColId.setMinWidth(130);
+        tColPhone.setMinWidth(120);
+
         //把列对象添加到表视图
         tableView.getColumns().addAll(tColId,tColName,tColSex,tColMajor,
                 tColClas,tColPhone,tColState,tColTeacher);
@@ -209,12 +214,12 @@ public class ManagerView extends Application {
 
     }
     public void bulidtBox(){
-        Label tLabel_1 = new Label("工号");
-        Label tLabel_2 = new Label("姓名");
-        Label tLabel_3 = new Label("性别");
-        Label tLabel_4 = new Label("职称");
-        Label tLabel_5 = new Label("研究方向");
-        Label tLabel_6 = new Label("联系电话");
+        Label tLabel_1 = new Label("*工号");
+        Label tLabel_2 = new Label("*姓名");
+        Label tLabel_3 = new Label("*性别");
+        Label tLabel_4 = new Label("*职称");
+        Label tLabel_5 = new Label("*研究方向");
+        Label tLabel_6 = new Label("*联系电话");
 
         TextField TF_1 = new TextField();
         TextField TF_2 = new TextField();
@@ -244,6 +249,7 @@ public class ManagerView extends Application {
         gPane.add(TF_6,1,5);
 
         Button button = new Button("确定");
+        button.setPrefSize(200,30);
         teacherBox = new VBox(10);
         teacherBox.setAlignment(Pos.CENTER);
         teacherBox.getChildren().addAll(gPane,button);
@@ -256,8 +262,38 @@ public class ManagerView extends Application {
             String title = TF_4.getText();
             String major = TF_5.getText();
             String phone = TF_6.getText();
+
+            if (id.length()==0 || name.length()==0 || sex.length()==0
+                    || title.length()==0 || major.length()==0 || phone.length()==0){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("请填写完整");
+                alert.showAndWait();
+                return;
+            }
+
             if(todo.equals("addT")){
                 //sql="insert into 数据表 (字段1,字段2,字段3 …) values (值1,值2,值3 …)"
+                if(!isNumeric(id)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("账号只能由数字组成");
+                    alert.showAndWait();
+                    return;
+                }
+
+                //账号已存在报错
+                if(isHaveId(id)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("该账号已存在");
+                    alert.showAndWait();
+                    return;
+                }
+
                 sqlStr="insert into teacher (t_id,t_name,t_sex,t_title,t_major,t_phone,t_password,t_count,t_isfull) values ("
                         + id +","
                         + "'"+name +"'" + ","
@@ -267,6 +303,16 @@ public class ManagerView extends Application {
                         + phone
                         +",123456,0,'未满额' )";
             }else if(todo.equals("setT")){
+                //账号不存在报错
+                if(!isHaveId(id)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("该账号不存在");
+                    alert.showAndWait();
+                    return;
+                }
+
                 sqlStr =  "update teacher set t_id="+ id + ",t_name="+ "'"+ name + "'"
                         + ",t_sex="+ "'"+ sex + "'"
                         + ",t_title="+ "'"+ title + "'"
@@ -284,12 +330,12 @@ public class ManagerView extends Application {
         });
     }
     public void bulidsBox(){
-        Label sLabel_1 = new Label("学号");
-        Label sLabel_2 = new Label("姓名");
-        Label sLabel_3 = new Label("性别");
-        Label sLabel_4 = new Label("专业");
-        Label sLabel_5 = new Label("班级");
-        Label sLabel_6 = new Label("联系电话");
+        Label sLabel_1 = new Label("*学号");
+        Label sLabel_2 = new Label("*姓名");
+        Label sLabel_3 = new Label("*性别");
+        Label sLabel_4 = new Label("*专业");
+        Label sLabel_5 = new Label("*班级");
+        Label sLabel_6 = new Label("*联系电话");
 
         TextField TF_1 = new TextField();
         TextField TF_2 = new TextField();
@@ -319,6 +365,7 @@ public class ManagerView extends Application {
         gPane.add(TF_6,1,5);
 
         Button button = new Button("确定");
+        button.setPrefSize(200,30);
         studentBox = new VBox(10);
         studentBox.setAlignment(Pos.CENTER);
         studentBox.getChildren().addAll(gPane,button);
@@ -331,7 +378,37 @@ public class ManagerView extends Application {
             String major = TF_4.getText();
             String clas = TF_5.getText();
             String phone = TF_6.getText();
+
+            if (id.length()==0 || name.length()==0 || sex.length()==0
+                    || clas.length()==0 || major.length()==0 || phone.length()==0){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("请填写完整");
+                alert.showAndWait();
+                return;
+            }
+
             if(todo.equals("addS")){
+                if(!isNumeric(id)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("账号只能由数字组成");
+                    alert.showAndWait();
+                    return;
+                }
+
+                //账号已存在报错
+                if(isHaveId(id)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("该账号已存在");
+                    alert.showAndWait();
+                    return;
+                }
+
                 //sql="insert into 数据表 (字段1,字段2,字段3 …) values (值1,值2,值3 …)"
                 sqlStr="insert into student (s_id,s_name,s_sex,s_major,s_clas,s_phone,s_password,s_state,t_id,t_name) values ("
                         + id +","
@@ -342,6 +419,16 @@ public class ManagerView extends Application {
                         + phone
                         +",123456,'未选',null,null)";
             }else if(todo.equals("setS")){
+                //账号不存在报错
+                if(!isHaveId(id)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("该账号不存在");
+                    alert.showAndWait();
+                    return;
+                }
+
                 sqlStr =  "update student set s_name="+ "'"+ name + "'"
                         + ",s_sex="+ "'"+ sex + "'"
                         + ",s_major="+ "'"+ major + "'"
@@ -360,21 +447,62 @@ public class ManagerView extends Application {
     }
     public void bulidNumBox(){
         Label label = new Label("导师可带学生数为：");
+        label.setStyle("-fx-font-size: 15");
         TextField  TF = new TextField();
+        TF.setPrefSize(100,30);
         Button button = new Button("确定");
+        button.setPrefSize(200,30);
+
+        numHBox = new HBox(20);
+        numHBox.setAlignment(Pos.CENTER);
+        numHBox.getChildren().addAll(label,TF);
+
         setNumBox = new VBox(10);
         setNumBox.setAlignment(Pos.CENTER);
-        setNumBox.getChildren().addAll(label,TF,button);
+        setNumBox.getChildren().addAll(numHBox,button);
 
         //确定按钮点击事件
         button.setOnAction(event -> {
-            int count = Integer.parseInt(TF.getText().toString());
-            sqlStr =  "update count set count_num="+ "'"+ count + "'"
-                    +" where count_id=1" ;
             //连接数据库
             DatabaseControler controler = new DatabaseControler();
             controler.connect();
-            controler.updateInDB(sqlStr);
+
+            int count = Integer.parseInt(TF.getText().toString());
+            int count_num = 0;
+
+            sqlStr =  "select * from count where count_id =1";
+            ResultSet rs = controler.queryInDB(sqlStr);
+            try {
+                while (rs.next()){
+                    count_num = rs.getInt(2);
+                }
+            }catch (Exception e){
+                System.out.println("出错：" + e.getMessage());
+            }
+
+            //为避免冲突，导师所带学生数，只可改大，不可改小
+            if(count>=count_num) {
+                sqlStr = "update count set count_num=" + "'" + count + "'"
+                        + " where count_id=1";
+                controler.updateInDB(sqlStr);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("修改成功");
+                alert.showAndWait();
+
+                //更新教师状态
+                sqlStr =  "update teacher set t_isfull='未满额' where t_count<"+ count ;
+                controler.updateInDB(sqlStr);
+
+            }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("导师所带学生数不可改小");
+                alert.showAndWait();
+                return;
+            }
 
             //关闭数据库连接
             controler.closeConnection();
@@ -401,6 +529,46 @@ public class ManagerView extends Application {
         managerStage.setScene(scene);
         managerStage.setTitle("管理员界面");
         managerStage.show();
+    }
+
+    public static boolean isNumeric(String str)
+    {
+        for(int i=str.length();--i>=0;)
+        {
+            int chr=str.charAt(i);
+            if(chr<48 || chr>57)
+                return false;
+        }
+        return true;
+    }
+
+    //判断账号是否存在
+    public boolean isHaveId(String s){
+        if(todo.equals("addT")|| todo.equals("setT")){
+            sqlStr =  "select * from teacher where t_id =" + s;
+        }else if(todo.equals("addS")|| todo.equals("setS")){
+            sqlStr =  "select * from student where s_id =" + s;
+        }
+
+        //连接数据库
+        DatabaseControler controler = new DatabaseControler();
+        controler.connect();
+        ResultSet rs = controler.queryInDB(sqlStr);
+
+        //判断结果集是否为空
+        try {
+            if (!rs.next()) {
+                //关闭数据库连接
+                controler.closeConnection();
+                return false;//账号不存在
+            }
+        }catch (Exception e){
+            System.out.println("出错：" + e.getMessage());
+        }
+
+        //关闭数据库连接
+        controler.closeConnection();
+        return true;//账号存在
     }
 
     public static void main(String[] args) {

@@ -21,7 +21,7 @@ public class Login extends Application {
     private Label numberLabel;
     private Label passwordLabel;
     private TextField numberTF;
-    private TextField passwordTF;
+    private PasswordField passwordTF;
     private Button loginButton;
     private Button passwordBtn;
 
@@ -46,32 +46,36 @@ public class Login extends Application {
     public void start(Stage primaryStage) throws Exception {
         //创建Label、TextField、Button等组件
         loginLabel = new Label("登录");
-        loginLabel.setStyle("-fx-font-size: 24px");
+        loginLabel.setStyle("-fx-font-size: 22px");
         //loginLabel.setPadding(new );
         numberLabel = new Label("账号");
         numberLabel.setStyle("-fx-font-size: 18px");
         passwordLabel = new Label("密码");
         passwordLabel.setStyle("-fx-font-size: 18px");
         numberTF = new TextField();
-        numberTF.setPrefColumnCount(15);
+        numberTF.setPrefColumnCount(10);
         numberTF.setPrefHeight(35);
-        passwordTF = new TextField();
-        passwordTF.setPrefColumnCount(15);
+        passwordTF = new PasswordField();
+
+        passwordTF.setPrefColumnCount(10);
         passwordTF.setPrefHeight(35);
 
         loginButton = new Button("登录");
+        loginButton.setPrefSize(200,40);
         loginButton.setAlignment(Pos.CENTER);
         //登录按钮点击事件
         loginButton.setOnAction(e->{
             login();
-            //暂时注释掉，勿删！！！！！！
+            //暂时注释掉，便于测试，可使登录界面不消失
             /*if(isDisplay) {
                 primaryStage.close();
             }*/
         });
 
         passwordBtn = new Button("修改密码");
-        loginButton.setAlignment(Pos.CENTER);
+        passwordBtn.setPrefSize(200,40);
+        passwordBtn.setAlignment(Pos.CENTER);
+
         //修改密码按钮点击事件
         passwordBtn.setOnAction(event -> {
             PasswordView passwordView = new PasswordView();
@@ -92,6 +96,11 @@ public class Login extends Application {
         teacherRB.setUserData("teacher");
         managerRB.setUserData("manager");
 
+        //设置单选按钮焦点
+        studentRB.setSelected(true);
+        tableName = "student";
+
+
         //单选按钮监听事件
         toggleGroup.selectedToggleProperty().addListener(
                 (ObservableValue<? extends Toggle> ov, Toggle old_Toggle,
@@ -103,18 +112,18 @@ public class Login extends Application {
                 });
 
         //创建HBox
-        numberHBox = new HBox();
+        numberHBox = new HBox(20);
         numberHBox.getChildren().addAll(numberLabel,numberTF);
         numberHBox.setAlignment(Pos.CENTER);
-        passwordHBox = new HBox();
+        passwordHBox = new HBox(20);
         passwordHBox.getChildren().addAll(passwordLabel,passwordTF);
         passwordHBox.setAlignment(Pos.CENTER);
-        radioSelectHBox = new HBox();
+        radioSelectHBox = new HBox(20);
         radioSelectHBox.getChildren().addAll(studentRB,teacherRB,managerRB);
         radioSelectHBox.setAlignment(Pos.CENTER);
 
         //创建VBox
-        vBox = new VBox(10);
+        vBox = new VBox(15);
         vBox.setAlignment(Pos.CENTER);
         vBox.getChildren().addAll(loginLabel,numberHBox,passwordHBox);
         vBox.getChildren().add(radioSelectHBox);
@@ -124,7 +133,7 @@ public class Login extends Application {
         //创建舞台和场景
         Scene scene = new Scene(vBox,WINDOW_WIDTH,WINDOW_HEIGHT);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("登录");
         primaryStage.show();
     }
 
@@ -133,6 +142,25 @@ public class Login extends Application {
         String password = passwordTF.getText();
         String p = "";
         isDisplay = true;
+
+        if(number.length()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("请输入账号");
+            isDisplay = false;
+            alert.showAndWait();
+            return;
+        }else if(password.length()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("请输入密码");
+            isDisplay = false;
+            alert.showAndWait();
+            return;
+        }
+
 
         if(tableName.equals("student")){
             sqlStr = "select * from student where s_id ="+number;
